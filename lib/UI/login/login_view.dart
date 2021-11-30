@@ -73,6 +73,7 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       textFieldWidget(model),
+                      //textFieldWidget(model),
                       buttonWidget(model),
                       footerText(),
                       SizedBox(height: 81.h),
@@ -140,58 +141,22 @@ class LoginView extends StatelessWidget {
         margin: EdgeInsets.only(top: 30.h),
         child: Row(
           children: [
-            GestureDetector(
-              onTap: () {},
-              behavior: HitTestBehavior.translucent,
-              child: Container(
-                height: double.infinity,
-                width: 70,
-                padding: EdgeInsets.only(left: 5.w, right: 15.w),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: CountryCodePicker(
-                          initialSelection: '+91',
-                          padding: EdgeInsets.zero,
-                          alignLeft: true,
-                          showFlagMain: false,
-                          favorite: ['+91'],
-                          textStyle: TextStyle(
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                          onChanged: (code) {
-                            model.setCountryCode(code.dialCode!);
-                          },
-                        ),
-                      ),
-                    ),
-                    Image.asset(
-                      'assets/images/arrow-down-fill.png',
-                      height: 4.11,
-                    ),
-                  ],
-                ),
-              ),
-            ),
             Expanded(
               child: TextFormField(
-                keyboardType: TextInputType.phone,
-                maxLength: 10,
-                maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                keyboardType: TextInputType.text,
+                //maxLength: 10,
+                //maxLengthEnforcement: MaxLengthEnforcement.enforced,
                 buildCounter: (
                   context, {
                   required currentLength,
                   required isFocused,
                   maxLength,
                 }) {
-                  return SizedBox();
+                  return const SizedBox();
                 },
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Mobile Number',
+                  hintText: 'User Name',
                   hintStyle: TextStyle(
                     fontSize: 13.sp,
                     color: Palette.hint,
@@ -200,17 +165,17 @@ class LoginView extends StatelessWidget {
                 ),
                 validator: (value) {
                   if (value?.isEmpty ?? true) {
-                    return 'Phone number is required';
+                    return 'Username is required';
                   }
-                  if (value?.length != 10) {
-                    return 'Invalid phone number';
-                  }
+                  // if (value?.length != 10) {
+                  //   return 'Invalid phone number';
+                  // }
                   return null;
                 },
                 onSaved: (newValue) => model.mobile = newValue,
               ),
             ),
-          ],
+             ],
         ),
       ),
     );

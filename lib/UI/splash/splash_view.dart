@@ -16,7 +16,7 @@ class SplashView extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Center(
           child: Image.asset(
-            'assets/images/login.png',
+            'assets/images/computek.jpeg',
             width: 250,
             height: 250,
           ),
