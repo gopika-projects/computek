@@ -73,7 +73,7 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       textFieldWidget(model),
-                      //textFieldWidget(model),
+                      //  textFieldWidget(model),
                       buttonWidget(model),
                       footerText(),
                       SizedBox(height: 81.h),
@@ -131,52 +131,104 @@ class LoginView extends StatelessWidget {
     return Form(
       key: model.formKey,
       autovalidateMode: model.autovalidateMode,
-      child: Container(
-        height: 46,
-        width: ScreenSize.width,
-        decoration: BoxDecoration(
-          color: Palette.white,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        margin: EdgeInsets.only(top: 30.h),
-        child: Row(
-          children: [
-            Expanded(
-              child: TextFormField(
-                keyboardType: TextInputType.text,
-                //maxLength: 10,
-                //maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                buildCounter: (
-                  context, {
-                  required currentLength,
-                  required isFocused,
-                  maxLength,
-                }) {
-                  return const SizedBox();
-                },
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'User Name',
-                  hintStyle: TextStyle(
-                    fontSize: 13.sp,
-                    color: Palette.hint,
-                  ),
-                  contentPadding: EdgeInsets.only(bottom: 10.h),
-                ),
-                validator: (value) {
-                  if (value?.isEmpty ?? true) {
-                    return 'Username is required';
-                  }
-                  // if (value?.length != 10) {
-                  //   return 'Invalid phone number';
-                  // }
-                  return null;
-                },
-                onSaved: (newValue) => model.mobile = newValue,
-              ),
+      child: Column(
+        children: [
+          Container(
+            height: 46,
+            width: ScreenSize.width,
+            decoration: BoxDecoration(
+              color: Palette.white,
+              borderRadius: BorderRadius.circular(8),
             ),
-             ],
-        ),
+            margin: EdgeInsets.only(top: 30.h),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    keyboardType: TextInputType.text,
+                    //maxLength: 10,
+                    //maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    buildCounter: (
+                      context, {
+                      required currentLength,
+                      required isFocused,
+                      maxLength,
+                    }) {
+                      return const SizedBox();
+                    },
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'User Name',
+                      hintStyle: TextStyle(
+                        fontSize: 13.sp,
+                        color: Palette.hint,
+                      ),
+                      contentPadding: EdgeInsets.only(bottom: 10.h),
+                    ),
+                    validator: (value) {
+                      if (value?.isEmpty ?? true) {
+                        return 'Username is required';
+                      }
+                      // if (value?.length != 10) {
+                      //   return 'Invalid phone number';
+                      // }
+                      return null;
+                    },
+                    onSaved: (newValue) => model.mobile = newValue,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 46,
+            width: ScreenSize.width,
+            decoration: BoxDecoration(
+              color: Palette.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            margin: EdgeInsets.only(top: 30.h),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    obscureText: true,
+                    keyboardType: TextInputType.text,
+                    //maxLength: 10,
+                    //maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    buildCounter: (
+                      context, {
+                      required currentLength,
+                      required isFocused,
+                      maxLength,
+                    }) {
+                      return const SizedBox();
+                    },
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Password',
+                      hintStyle: TextStyle(
+                        fontSize: 13.sp,
+                        color: Palette.hint,
+                      ),
+                      contentPadding: EdgeInsets.only(bottom: 10.h),
+                    ),
+                    validator: (value) {
+                      if (value?.isEmpty ?? true) {
+                        return 'Username is required';
+                      }
+                      // if (value?.length != 10) {
+                      //   return 'Invalid phone number';
+                      // }
+                      return null;
+                    },
+                    onSaved: (newValue) => model.mobile = newValue,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
